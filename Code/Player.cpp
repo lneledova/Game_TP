@@ -2,7 +2,7 @@
 #include "Player.h"
 
 
-void Player::set_gender(string& that) {
+void Player::set_gender(const std::string& that) {
     gender = that;
 }
 
@@ -14,7 +14,7 @@ void Player::set_abilities(int that) {
     abilities = that;
 }
 
-string Player::get_gender() const {
+std::string Player::get_gender() const {
     return gender;
 }
 
@@ -91,37 +91,37 @@ void Player::change_tech_prog(int that) {
 }
 
 void Player::see_development() const {
-    cout << "Ну, давай посмотрим, насколько ты прокачался." << endl;
-    cout << "{ ";
+    std::cout << "Ну, давай посмотрим, насколько ты прокачался." << std::endl;
+    std::cout << "{ ";
     for (int i = 0; i < matan; ++i) {
-        cout << "== ";
+       std::cout << "== ";
     }
     for (int i = 0; i < 10 - matan; ++i) {
-        cout << "-- ";
+        std::cout << "-- ";
     }
-    cout << "} - Матан" << endl;
-    cout << "{ ";
+    std::cout << "} - Матан" << std::endl;
+    std::cout << "{ ";
     for (int i = 0; i < labs; ++i) {
-        cout << "== ";
+        std::cout << "== ";
     }
     for (int i = 0; i < 10 - labs; ++i) {
-        cout << "-- ";
+        std::cout << "-- ";
     }
-    cout << "} - Лабы" << endl;
-    cout << "{ ";
+    std:: cout << "} - Лабы" << std::endl;
+    std::cout << "{ ";
     for (int i = 0; i < english; ++i) {
-        cout << "== ";
+        std::cout << "== ";
     }
     for (int i = 0; i < 10 - english; ++i) {
-        cout << "-- ";
+        std::cout << "-- ";
     }
-    cout << "} - Английский язык" << endl;
-    cout << "{ ";
+    std::cout << "} - Английский язык" << std::endl;
+    std::cout << "{ ";
     for (int i = 0; i < tech_prog; ++i) {
-        cout << "== ";
+        std::cout << "== ";
     }
     for (int i = 0; i < 10 - tech_prog; ++i) {
-        cout << "-- ";
+        std::cout << "-- ";
     }
-    cout << "} - Технологии программирования" << endl;
+    std::cout << "} - Технологии программирования" << std::endl;
 }

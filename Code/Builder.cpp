@@ -1,7 +1,7 @@
 
 #include "Builder.h"
 
-void Builder::set_gender(string& gender) {
+void Builder::set_gender(const std::string& gender) {
     p.set_gender(gender);
 };
 

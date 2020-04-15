@@ -1,12 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
-using namespace std;
 
 
 class Player {
 private:
-    string gender;
+    std::string gender;
     int motivation;
     int abilities;
     int matan;
@@ -15,7 +14,7 @@ private:
     int tech_prog;
     bool alone;
 public:
-    void set_gender(string& that);
+    void set_gender(const std::string& that);
     void set_motivation(int that);
     void set_abilities(int that);
 
@@ -26,7 +25,7 @@ public:
     void change_labs(int that);
     void change_tech_prog(int that);
 
-    string get_gender() const;
+    std::string get_gender() const;
     int get_motivation() const;
     int get_abilities() const;
     int get_labs() const;

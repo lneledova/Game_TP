@@ -1,6 +1,6 @@
 #include "Application.h"
 
-Application::Application(string& gender, int motivation, int abilities) {
+Application::Application(const std::string& gender, int motivation, int abilities) {
     this->gender = gender;
     this->motivation = motivation;
     this->abilities = abilities;

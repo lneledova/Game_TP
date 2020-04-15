@@ -18,7 +18,7 @@ enable_testing()
 add_executable(GameTest test.cpp)
 
 target_link_libraries(GameTest ${GTEST_LIBRARIES} pthread)
-#target_include_directories(GameTest PUBLIC ${gtest_SOURCE_DIR}/include ${CMAKE_CURRENT_LIST_DIR})
+
 
 
 

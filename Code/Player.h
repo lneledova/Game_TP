@@ -13,6 +13,7 @@ private:
     int english;
     int tech_prog;
     bool alone;
+    int days;
 public:
     void set_gender(const std::string& that);
     void set_motivation(int that);
@@ -33,9 +34,11 @@ public:
     int get_english() const;
     int get_tech_prog() const;
 
+    int& get_days();
+
     void see_development() const;
 
-    Player(): matan(0), labs(0), english(0), tech_prog(0), alone(true){};
+    Player(): matan(0), labs(0), english(0), tech_prog(0), days(30), alone(true) {};
     Player& operator=(Player& that) = default;
     ~Player(){};
 

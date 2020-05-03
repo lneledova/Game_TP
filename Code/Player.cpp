@@ -37,6 +37,10 @@ int Player::get_tech_prog() const {
     return tech_prog;
 }
 
+int& Player::get_days() {
+    return days;
+}
+
 void Player::change_motivation(int that) {
     motivation += that;
     if (motivation < 0) {

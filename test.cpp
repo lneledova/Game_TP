@@ -29,6 +29,47 @@ TEST(Create, Player) {
     EXPECT_TRUE(IsEqual(a.make_player(), hand_create()));
 }
 
+TEST(Full, Decorator) {
+    Decorator dec;
+    Player pl = hand_create();
+    int nowdays = pl.get_days() + 1;
+    pl.change_matan(10);
+    decorator.Day(1, pl);
+    EXPECT_EQ(pl.get_days(), nowdays);
+}
+
+TEST(Tech_prog, Decorator) {
+    Decorator dec;
+    Player pl = hand_create();
+    int now_tech = pl.get_tech_prog();
+    int now_mat = pl.get_matan();
+    int now_eng = pl.get_english();
+    int now_labs = pl.get_labs();
+    dec.Day(3, pl);
+    EXPECT_TRUE(pl.get_tech_prog() >= now_tech && pl.get_matan() == now_mat && pl.get_english() == now_eng && pl.get_labs() == now_labs);
+}
+
+TEST(Matan, Decorator) {
+    Decorator dec;
+    Player pl = hand_create();
+    int now_tech = pl.get_tech_prog();
+    int now_mat = pl.get_matan();
+    int now_eng = pl.get_english();
+    int now_labs = pl.get_labs();
+    dec.Day(1, pl);
+    EXPECT_TRUE(pl.get_matan() >= now_mat && pl.get_tech_prog() == now_tech && pl.get_english() == now_eng && pl.get_labs() == now_labs);
+}
+
+TEST(Labs, Decorator) {
+    Decorator dec;
+    Player pl = hand_create();
+    int now_tech = pl.get_tech_prog();
+    int now_mat = pl.get_matan();
+    int now_eng = pl.get_english();
+    int now_labs = pl.get_labs();
+    dec.Day(4, pl);
+    EXPECT_TRUE(pl.get_matan() == now_mat && pl.get_tech_prog() == now_tech && pl.get_english() == now_eng && pl.get_labs() >= now_labs);
+}
 
 int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);

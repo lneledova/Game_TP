@@ -3,6 +3,7 @@
 #include "Code/Builder.cpp"
 #include "Code/Director.cpp"
 #include "Code/Player.cpp"
+#include "Code/Decorator.cpp"
 #include <gtest/gtest.h>
 
 
@@ -34,7 +35,7 @@ TEST(Full, Decorator) {
     Player pl = hand_create();
     int nowdays = pl.get_days() + 1;
     pl.change_matan(10);
-    decorator.Day(1, pl);
+    dec.Day(1, pl);
     EXPECT_EQ(pl.get_days(), nowdays);
 }
 

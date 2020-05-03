@@ -1,4 +1,3 @@
-#pragma once
 #include "Director.h"
 
 class Application {

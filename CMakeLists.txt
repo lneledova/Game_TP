@@ -5,7 +5,7 @@ project(Game)
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/Code)
 
-add_executable(Game Code/main.cpp Code/lib.cpp Code/Player.cpp Code/Builder.cpp Code/Director.cpp Code/Application.cpp Code/Decorator.cpp)
+add_executable(Game Code/main.cpp Code/lib.cpp Code/Player.cpp Code/Builder.cpp Code/Director.cpp Code/Application.cpp)
 target_include_directories(Game PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 

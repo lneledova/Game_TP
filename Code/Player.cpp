@@ -2,21 +2,26 @@
 #include "Player.h"
 
 
-void Player::set_gender(const std::string& that) {
-    gender = that;
-}
 
 void Player::set_motivation(int that) {
     motivation = that;
 }
-
 void Player::set_abilities(int that) {
     abilities = that;
 }
-
-std::string Player::get_gender() const {
-    return gender;
+void Player::set_matan(int that) {
+    matan = that;
 }
+void Player::set_labs(int that) {
+    labs = that;
+}
+void Player::set_tech_prog(int that) {
+    tech_prog = that;
+}
+void Player::set_english(int that) {
+    english = that;
+}
+
 
 int Player::get_motivation() const {
     return motivation;
@@ -36,10 +41,10 @@ int Player::get_english() const {
 int Player::get_tech_prog() const {
     return tech_prog;
 }
-
 int& Player::get_days() {
     return days;
 }
+
 
 void Player::change_motivation(int that) {
     motivation += that;
@@ -64,6 +69,7 @@ void Player::change_matan(int that) {
         matan = 0;
     }
 }
+
 void Player::change_english(int that) {
     english += that;
     if (english > 10) {

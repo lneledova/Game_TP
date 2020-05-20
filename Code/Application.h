@@ -3,11 +3,10 @@
 
 class Application {
 public:
-    std::string gender;
     int motivation;
     int abilities;
 
-    Application(const std::string& gender, int motivation, int abilities);
+    Application(int motivation, int abilities);
 
-    Player make_player();
+    Player make_player() const;
 };

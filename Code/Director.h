@@ -4,5 +4,5 @@
 
 class Director {
 public:
-    void create_player(Builder& builder,const std::string& gender, int motivation, int abilities);
+    void create_player(Builder& builder, int motivation, int abilities);
 };

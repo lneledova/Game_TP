@@ -17,6 +17,8 @@ void what_gender(std::string& gender) {
     } else {
         gender = "female";
     }
+    std::cout << "Если ты задаешься вопросом, зачем нам это знать - да незачем\n"
+                 "Тут все равны вне зависимости от пола\n";
 }
 
 void what_motivation(int& motivation) {
@@ -60,4 +62,74 @@ void what_abilities(int& abilities) {
         abilities = 3;
         std::cout << "Ну что, через тернии к звёздам?\n";
     }
+}
+
+void days_while_sem(Player& player) {
+    Decorator decorator;
+    for (int i = 0; i < player.get_days(); ++i) {
+        if (player.get_motivation() < 2) {
+            std::cout << "Сегодня твой настрой ужасен, вот-вот кокнешься, учти это!\n";
+        }
+        std::cout << "Тебе доступные такие действия:\n";
+
+        if (player.get_matan() < 10) {
+            std::cout << "Побороться с матаном - клавиша 1\n";
+        }
+        if (player.get_english() < 10) {
+            std::cout << "Сходить на английский - надо же как-то БРС получать.. - клавиша 2\n";
+        }
+        if (player.get_tech_prog() < 10) {
+            std::cout << "Занятся очередным техническим заданием по ТП (не суйся - сожрет, но всё-таки надо) - клавиша 3\n";
+        }
+        if (player.get_labs() < 10) {
+            std::cout << "Отправиться в лабораторию и погрязнуть в погрешностях и несходящихся числах - клавиша 4\n";
+        }
+        std::cout << "Самое интересное:\n"
+                     "Поболтаться по кампусу, авось что нужное найдешь - клавиша 5\n"
+                     "Выпить кофе в семёрке - клавиша 6\n"
+                     "Занятся каким-нибудь еще интересным тебе делом - клавиша 7\n";
+        std::cout << "Также ты можешь посмотреть свой прогресс в зачетке - клавиша 8\n";
+        int what_want;
+        std::cin >> what_want;
+        while (what_want < 1 || what_want > 8) {
+            std::cout << "Вроде на физтех поступил, а читаешь плохо.. Введи корректно!\n";
+            std::cin >> what_want;
+        }
+        if (what_want == 8) {
+            player.see_development();
+            std::cout << '\n' << '\n';
+            ++player.get_days();
+            continue;
+        }
+        decorator.Day(what_want, player);
+        std::cout << '\n' << '\n';
+    }
+}
+
+bool session(Player& player) {
+    std::cout << "Итак, начнем с технологий программирования\n";
+    Exam_tech e_tech;
+    if (e_tech.start_exam(player)) {
+        e_tech.set_examiner();
+        if (!e_tech.get_score(player)) {
+            return false;
+        }
+    }
+    std::cout << "Далee на очереди английский\n";
+    Exam_english e_eng;
+    e_eng.start_exam(player);
+    e_eng.set_examiner();
+    e_eng.get_score(player);
+    std::cout << "Мы подходим к самому вкусному - матан\n";
+    Exam_matan e_mat;
+    e_mat.start_exam(player);
+    e_mat.set_examiner();
+    if (!e_mat.get_score(player)) {
+        return false;
+    }
+    std::cout << "Финишная прямая, заключительный экзамен - физика\n";
+    Exam_labs e_lab;
+    e_lab.start_exam(player);
+    e_lab.set_examiner();
+    return e_lab.get_score(player);
 }
